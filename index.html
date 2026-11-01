@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ball Game — AI Lab v4.0</title>
+  <link href="gamelab.css" rel="stylesheet" type="text/css">
+  <style>
+    html,body{margin:0!important;padding:0!important;background:#f4f6f8;min-height:100%;overflow:auto!important;position:relative!important}
+    #sketch{position:relative!important;width:400px;height:400px;margin:12px 0 0 10px}
+    #startup-diagnostic{display:none;position:fixed;left:10px;right:10px;bottom:10px;z-index:1000000;background:#411f24;color:#fff;padding:12px;border:1px solid #b85d67;border-radius:8px;font:12px Arial;white-space:pre-wrap;max-height:35vh;overflow:auto}
+    @media(max-width:820px){#sketch{margin:0 auto}}
+  </style>
+  <script>
+    (function(){
+      function report(message){var box=document.getElementById('startup-diagnostic');if(!box){window.__startupErrors=(window.__startupErrors||[]);window.__startupErrors.push(message);return;}box.style.display='block';box.textContent='GAME STARTUP DIAGNOSTIC\n'+message+'\n\nThis message is for troubleshooting; it does not bypass device restrictions.';}
+      window.addEventListener('error',function(e){report((e.message||'Script error')+'\nFile: '+(e.filename||'unknown')+'\nLine: '+(e.lineno||'?'));});
+      window.addEventListener('unhandledrejection',function(e){report('Unhandled promise rejection: '+(e.reason&&e.reason.message||e.reason||'unknown'));});
+      window.addEventListener('load',function(){setTimeout(function(){if(!document.querySelector('#sketch canvas'))report('The game canvas did not initialize. A required script may have been blocked or failed to load. Check whether this site/file is permitted by your school administrator.');},3500);});
+    })();
+  </script>
+  <script src="gamelab-api.js"></script>
+  <script src="p5.js"></script>
+  <script src="p5.play.js"></script>
+  <script src="code.js"></script>
+</head>
+<body class="web">
+  <div id="sketch"></div>
+  <div id="soft-buttons" style="display:none">
+    <button id="leftButton" disabled class="arrow"></button><button id="rightButton" disabled class="arrow"></button><button id="upButton" disabled class="arrow"></button><button id="downButton" disabled class="arrow"></button>
+  </div>
+  <div id="studio-dpad-container" style="position:absolute;width:400px;bottom:5px;height:157px;overflow-y:hidden"></div>
+  <div id="startup-diagnostic"></div>
+  <script>if(window.__startupErrors&&window.__startupErrors.length){var b=document.getElementById('startup-diagnostic');b.style.display='block';b.textContent='GAME STARTUP DIAGNOSTIC\n'+window.__startupErrors.join('\n\n');}</script>
+</body>
+</html>
